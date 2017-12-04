@@ -217,5 +217,3 @@ int main() {
 
     return 0;
 }
-
-//sudo tcpdump -ni h1-eth0 not ether proto 0x88cc and not ether proto 0x8942 and not arp
