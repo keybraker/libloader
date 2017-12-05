@@ -45,14 +45,14 @@ The best way to make loading/progress bars without any extra library in C++
    ```
 
 2.
-2.1
+⋅⋅1
 
    If implementation (libmultibar.so) is in the same path as your .cpp (your_program.cpp) simply execute:
    ```
       g++ -L./ -lmultibar your_program.cpp
    ```
 
-2.2
+⋅⋅2
 
    If you want to put the library on system directory library, execute
    command:
