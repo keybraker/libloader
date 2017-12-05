@@ -15,7 +15,7 @@ struct progressData{
     string  name;
 };
 
-void loadingDots (progressData* progressValues, int numOfValues){
+void pingpong (progressData* progressValues, int numOfValues){
 
     int k = 0;
     time_t start,end;
@@ -28,9 +28,10 @@ void loadingDots (progressData* progressValues, int numOfValues){
             difftime (end,start) < progressValues[2].FINAL ){
 
         string progress;
-        if(k == 0){ k++; progress = string(1, '.') + string(5, ' ');}
-        else if (k == 1){ k++; progress = string(2, '.') + string(4, ' ');}
-        else{ k=0; progress = string(3, '.') + string(3, ' ');}
+        if(k == 0){ k++; progress = string(1, '[') + string(1, '=') + string(3, ' ') + string(1, ']') + string(1, ' ');}
+        else if (k == 1){ k++; progress = string(1, '[') + string(1, ' ') + string(1, '=') +  string(2, ' ') + string(1, ']') + string(1, ' ');}
+        else if (k == 2){ k++; progress = string(1, '[') + string(2, ' ') + string(1, '=') +  string(1, ' ') + string(1, ']') + string(1, ' ');}
+        else{ k=0; progress = string(1, '[') + string(3, ' ') + string(1, '=') + string(1, ']') + string(1, ' ');}
         
         int length = 0;
         while(length < numOfValues){
@@ -46,7 +47,7 @@ void loadingDots (progressData* progressValues, int numOfValues){
                             << progressValues[length].time/60 
                             << " min ] loading " 
                             << progressValues[length].name
-                            << " ✔  " << endl;
+                            << " ✔               " << endl;
                 }else{
                     cout    << inliner
                             << "[ " << setw(4) 
@@ -55,7 +56,7 @@ void loadingDots (progressData* progressValues, int numOfValues){
                             << progressValues[length].time 
                             << " sec ] loading " 
                             << progressValues[length].name
-                            << " ✔  " << endl;
+                            << " ✔               " << endl;
                 }
 
             }else{
@@ -69,7 +70,7 @@ void loadingDots (progressData* progressValues, int numOfValues){
                                 << setprecision(2) << difftime (end,start)/60 
                                 << " min ] loading " 
                                 << progressValues[length].name
-                                << " ✔  " << endl;
+                                << " ✔               " << endl;
 
                         progressValues[length].time = difftime(end, start);
 
@@ -95,7 +96,7 @@ void loadingDots (progressData* progressValues, int numOfValues){
                                 << setprecision(2) << difftime (end,start) 
                                 << " sec ] loading " 
                                 << progressValues[length].name
-                                << " ✔  " << endl;
+                                << " ✔               " << endl;
 
                         progressValues[length].time = difftime(end, start);
 
@@ -117,7 +118,7 @@ void loadingDots (progressData* progressValues, int numOfValues){
             length++;
         }
         cout.flush();
-        usleep(250000);
+        usleep(333333);
         time (&end);
     }
 
@@ -139,7 +140,7 @@ void loadingDots (progressData* progressValues, int numOfValues){
                     << progressValues[length].time/60 
                     << " min ] loading " 
                     << progressValues[length].name
-                    << " ✔  " << endl;
+                    << " ✔               " << endl;
         }else{
             cout    << inliner
                     << "[ " << setw(4) 
@@ -148,34 +149,11 @@ void loadingDots (progressData* progressValues, int numOfValues){
                     << progressValues[length].time 
                     << " sec ] loading " 
                     << progressValues[length].name
-                    << " ✔  " << endl;
+                    << " ✔               " << endl;
         }
         cout.flush();
         length++;
     }
-}
-
-void percentageBar (){
-
-    float progress = 0.0;
-    while (progress < 1.0) {
-        int barWidth = 70;
-
-        std::cout << "[";
-        int pos = barWidth * progress;
-        for (int i = 0; i < barWidth; ++i) {
-            if (i < pos) std::cout << "=";
-            else if (i == pos) std::cout << ">";
-            else std::cout << " ";
-        }
-        std::cout << "] " << int(progress * 100.0) << " %\r";
-        sleep(1);
-        std::cout.flush();
-
-        progress += 0.16; // for demonstration only
-    }
-    std::cout << std::endl;
-
 }
 
 /*
@@ -212,7 +190,7 @@ int main() {
         cntr++;
     }
 
-    loadingDots(progressValues, numberOfValues);
+    pingpong(progressValues, numberOfValues);
     //percentageBar();
 
     return 0;

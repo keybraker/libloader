@@ -15,7 +15,7 @@ struct progressData{
     string  name;
 };
 
-void percentageBar (progressData* progressValues, int numOfValues){
+void progressBar (progressData* progressValues, int numOfValues){
 
     int k = 0;
     time_t start,end;
@@ -134,7 +134,7 @@ int main() {
         cntr++;
     }
 
-    percentageBar(progressValues, numberOfValues);
+    progressBar(progressValues, numberOfValues);
 
     return 0;
 }
