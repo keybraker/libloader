@@ -1,16 +1,16 @@
 loading:
 	clear
-	g++ -o loading loadingBar.cpp
+	g++ -o loading exp_loadingBar.cpp
 	./loading
 
 progress:
 	clear
-	g++ -o progress progressBar.cpp
+	g++ -o progress exp_progressBar.cpp
 	./progress
 
 pingpong:
 	clear
-	g++ -o pingpong pingpongBar.cpp
+	g++ -o pingpong exp_pingpongBar.cpp
 	./pingpong
 
 libraryMaker:
