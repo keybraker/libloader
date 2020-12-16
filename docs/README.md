@@ -1,66 +1,61 @@
 # Simultaneous Progress Bars
+A simple, easy to use library to make simultaneous progress, loading bars in c++
 
-The best way to make loading/progress bars without any extra library in C++
+![alt text](../img/display.gif)
 
-## Explanation for comprehension 
+## Instalation
+1. Open a terminal and clone library wherever you desire and move there
+```bash
+git clone https://github.com/keybraker/Simultaneous-Progress-Bars.git && cd Simultaneous-Progress-Bars
+```
 
-1. LoadingBar.cpp :
-   
-   Loading bar, are moving dots representing progress.
-   Percentage, alongside time is shown and dynamically 
-   changed from seconds to minutes
+2. Create library 
+```bash
+make lib
+```
 
-   ```
+if you want to move it under root so it can be linked everywhere, type
+```bash
+make lib-root
+```
+
+## Usage
+Linking library to you projects is done in two easy steps
+
+1. include libloader inside a cpp file you are using it
+```cpp
+#include <exiv2/exiv2.hpp>
+```
+
+2. link the library when compiling
+```
+   g++ your_program.cpp -L/path_to_libloader -libloader
+```
+> note that -L is the linking flag for L_ibraries_ and what follows is the path to find it
+
+## Demo
+
+1. ```exp_loading_bar.cpp```
+
+   ```bash
       make loading
    ```
 
-2. progressBar.cpp :
-   
-   Progress bar, are expanding bars representing progress.
-   Percentage, is also shown
+  *Loading bar* _is a bar with moving dots representing progress. Percentage with elapsed time is shown and dynamically changed from seconds to minutes._
 
-   ```
+2. ```exp_progress_bar.cpp```
+   
+   ```bash
       make progress
    ```
-
-3. pingpongBar.cpp :
    
-   Pingpong bar, is simulation of pingpong.
-   Percentage, is also shown.
+*Progress bar* _is a bar with '=' characters increasing as process nears completion. Percentage with elapsed time is shown and dynamically changed from seconds to minutes._
 
-   ```
+3. ```exp_pingpong_bar.cpp```
+   
+   ```bash
       make pingpong
    ```
-
-## Run your program with the API
    
-1. Include library on your_program.cpp
-   
-   ```
-      #include "multibar.h"
-      .
-      .
-      .
-
-   ```
-
-2. Compile your program with the library
-   1. If implementation (libmultibar.so) is in the same path as your .cpp (your_program.cpp) simply execute:
-
-      ```
-         g++ -L./ -libloader your_program.cpp
-      ```
-
-   2. If you want to put the library on system directory library, execute command:
-
-      ```
-         export LD_LIBRARY_PATH=/path_to_lib_without_lib.so:$LD_LIBRARY_PATH
-      ``` 
-
-      And now that you have put the new library on the system path, compile your 
-      new your_program.cpp with: 
-      ```
-         g++ -libloader your_program.cpp
-      ```  
-      if library is in the same path as you program
+*Ping Pong* _is a table indicating processing but not percentage of completion. Percentage with elapsed time is shown and dynamically changed from seconds to minutes._
        
