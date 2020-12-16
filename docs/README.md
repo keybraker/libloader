@@ -24,7 +24,7 @@ Linking library to you projects is done in two easy steps
 
 1. include libloader inside a cpp file you are using it
 ```cpp
-#include <exiv2/exiv2.hpp>
+#include <libloader/libloader.h>
 ```
 
 2. link the library when compiling
