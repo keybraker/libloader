@@ -7,6 +7,7 @@
 #include <string>
 #include <ctime>
 
+// #include <libloader.h>
 #include "../lib/libloader.h"
 
 using namespace std;
@@ -21,8 +22,8 @@ string gen_random()
     int string_length = sizeof(alphanum) - 1;
     string stringer;
 
-    int number_of_values = rand() % 20;
-    for (int cntr = 0; cntr < number_of_values cntr++)
+    int number_of_values = (rand() % 10) + 2;
+    for (int cntr = 0; cntr < number_of_values; cntr++)
     {
         stringer += alphanum[rand() % string_length];
     }
@@ -35,8 +36,8 @@ int main()
     srand(time(NULL));
     progress_data *progress_values = new progress_data[20];
 
-    int number_of_values = rand() % 20;
-    for (int cntr = 0; cntr < number_of_values cntr++)
+    int number_of_values = (rand() % 10) + 2;
+    for (int cntr = 0; cntr < number_of_values; cntr++)
     {
         progress_values[cntr].FINAL = rand() % 120; //time in seconds
         progress_values[cntr].name = gen_random();

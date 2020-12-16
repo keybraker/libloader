@@ -17,5 +17,5 @@ struct progress_data
 };
 
 void loading_dots(progress_data *progress_values, int num_of_values);
-void progressBar(progress_data *progress_values, int num_of_values);
-void pingpong(progress_data *progress_values, int num_of_values);
+void progress_bar(progress_data *progress_values, int num_of_values);
+void ping_pong(progress_data *progress_values, int num_of_values);
