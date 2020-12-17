@@ -3,7 +3,7 @@ A simple, easy to use library to make simultaneous progress, loading bars in c++
 
 ![alt text](../img/showcase.png)
 
-## Instalation
+## Installation
 1. Open a terminal and clone library wherever you desire and move there
    ```bash
    git clone https://github.com/keybraker/libloader.git && cd libloader
